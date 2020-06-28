@@ -2,8 +2,8 @@
 <!--pages/login/login.wxml-->
 <view class="container"> 
   <form bindsubmit="formSubmit" class='form'>
-    <input class="weui-input" name="no" bindinput="idinput" value='{{id}}' placeholder="请输入学号" />
-    <input class="weui-input" type="password" name="password" bindinput="pwdinput" placeholder="请输入密码" value='{{pwd}}'/>
+    <input class="weui-input" name="id" bindinput="idinput" value='{{id}}' placeholder="请输入学号" />
+    <input class="weui-input" type="password" name="password" bindinput="passwordinput" placeholder="请输入密码" value='{{password}}'/>
     <button class="loginBtn" size="{{primarySize}}"  form-type='submit' disabled='{{disabled}}'>登录</button> 
   </form>
 </view>  

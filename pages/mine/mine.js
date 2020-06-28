@@ -10,10 +10,13 @@ Page({
       isLogined:false
   },
 
-  onTabItemTap: function(item){
-    this.setData({
-      isLogined:app.globalData.token
-    });
+  onTabItemTap: function(){
+    console.log(app.gd.token)
+    if(app.gd.token==null){
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
   },
   
 

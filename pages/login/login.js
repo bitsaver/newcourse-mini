@@ -1,15 +1,44 @@
 // pages/login/login.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    disabled:false,
-    id:'',
-    password:'',
-    idInput:false,
-    passwordInput:false,
+    disabled: false,
+    id: '',
+    password: '',
+    idInput: false,
+    passwordInput: false,
+  },
+
+  idinput: function (e) {
+    this.data.id = e.detail.value;
+  },
+  passwordinput: function (e) {
+    this.data.password = e.detail.value;
+  },
+
+  /**
+   * 执行登录操作，登陆成功后将token保存到全局变量token中
+   *  
+   */
+  formSubmit: function (e) {
+    wx.request({
+      url: app.gd.host + "newcourse/user/login",
+      data: {
+        id: this.data.id,
+        password: this.data.password
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        app.gd.token = res.data.data;
+        console.log(res.data);
+      }
+    })
   },
 
   /**
