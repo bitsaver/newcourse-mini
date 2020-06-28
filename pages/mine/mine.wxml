@@ -1,0 +1,4 @@
+<!--pages/mine/mine.wxml-->
+<text>pages/mine/mine.wxm
+<b>是否登录：{{isLogined}}</b>
+l</text>
