@@ -26,7 +26,7 @@ Page({
    */
   formSubmit: function (e) {
     wx.request({
-      url: app.gd.host + "newcourse/user/login",
+      url: app.gd.host + "/user/login",
       data: {
         id: this.data.id,
         password: this.data.password
@@ -34,6 +34,7 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
+      method:"POST",
       success(res) {
         app.gd.token = res.data.data;
         console.log(res.data);

@@ -3,8 +3,8 @@ App({
 
   gd: {
       token:null,
-      host:"http://localhost/newcourse"
-      // host:"http://182.61.28.102/newcourse"
+      // host:"http://localhost/newcourse"
+      host:"http://182.61.28.102/newcourse"
   },
   
   /**
