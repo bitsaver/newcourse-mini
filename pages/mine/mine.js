@@ -7,15 +7,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-      isLogined:false
+      hasLogined:false,
+
+  },
+
+  tocourseButton: function(){
+    wx.navigateTo({
+      url: './course/course',
+    })
   },
 
   onTabItemTap: function(){
+    const that = this;
     console.log(app.gd.token)
     if(app.gd.token==null){
       wx.navigateTo({
         url: '../login/login',
       })
+      this.setData({
+        hasLogined:true
+      })
+    }else{
+      this.setData({
+        hasLogined:true
+      })
+      
     }
   },
   

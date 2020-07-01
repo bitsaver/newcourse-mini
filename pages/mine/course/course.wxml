@@ -1,0 +1,15 @@
+<!--pages/mine/course/course.wxml-->
+<view>
+<text>我的课程</text>
+  <scroll-view>
+    <view wx:for="{{courseList}}">
+      <view class="course">
+        <view class="course_name">{{index}}.  {{item.name}}</view>
+        <view class="course_brief">简介：{{item.brief}}</view>
+        <view class="course_state">{{item.state}}</view>
+        <view class="course_enroll_btn" bindtap="entercourseButton" data-courseid="{{item.id}}">进入课程</view>
+        <view>---------------------</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

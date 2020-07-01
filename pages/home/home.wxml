@@ -1,2 +1,18 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view>
+  <view class="search">
+    <input class="search_input" bindinput="searchInput" placeholder="请输入课程名程..."></input>
+    <button class="search_button" bindtap="searchButton">搜索</button>
+  </view>
+  <scroll-view>
+    <view wx:for="{{courseList}}" wx:key="item.id">
+      <view class="question">
+        <view class="question_name">{{index}}.  {{item.name}}</view>
+        <view class="question_brief">简介：{{item.brief}}</view>
+        <view class="question_state">状态{{item.state}}</view>
+        <view class="question_enroll_btn" bindtap="enrollButton" data-questionid="{{item.id}}">参加课程</view>
+        <view>---------------------</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

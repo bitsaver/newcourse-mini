@@ -1,0 +1,31 @@
+<!--pages/mine/question/question.wxml-->
+<view>
+  <text>试卷</text>
+  <scroll-view>
+    <view wx:for="{{questionList}}">
+      <view class="question">
+
+        <view class="question_content">{{index+1}}.  {{item.question.content}}</view>
+
+        <view class="question_choice_list" wx:for="{{item.choiceList}}">
+          <view clase="question_choice" >{{item.content}}</view>
+        </view>
+
+        <view>正确答案：</view>
+        <view class="question_answer_list" wx:for="{{item.answerList}}">
+          <view class="question_answer">{{item.answer}}</view>
+        </view>
+
+        <view>我的答案：</view>
+        <view class="question_student_answer_list" wx:for="{{item.answerList}}">
+          <view class="question_answer">{{item.answer}}</view>
+        </view>
+
+
+        <view class="question_state" wx:if="{{item.question}}"></view>
+        <view class="question_enroll_btn" bindtap="enrollButton" data-questionid="{{item.question.id}}">{{item.question.id}}</view>
+        <view>---------------------</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,4 +1,4 @@
-// pages/login/login.js
+// pages/mine/quiz/quiz.js
 const app = getApp();
 Page({
 
@@ -6,54 +6,44 @@ Page({
    * 页面的初始数据
    */
   data: {
-    disabled: false,
-    id: '',
-    password: '',
-    idInput: false,
-    passwordInput: false,
+    quizList:[]
   },
 
-  idinput: function (e) {
-    this.data.id = e.detail.value;
-  },
-  passwordinput: function (e) {
-    this.data.password = e.detail.value;
-  },
 
-  /**
-   * 执行登录操作，登陆成功后将token保存到全局变量token中
-   *  
-   */
-  formSubmit: function (e) {
-    wx.request({
-      url: app.gd.host + "/user/login",
-      data: {
-        id: this.data.id,
-        password: this.data.password
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method:"POST",
-      success(res) {
-        app.gd.token = res.data.data;
-        wx.showToast({
-          title: res.data.msg,
-          duration:2000
-        })
-        console.log(res.data);
-        wx.switchTab({
-          url: '../home/home',
-        })
-      }
+  openQuiz:function(e){
+    console.log(e.currentTarget.dataset.quizid)
+    wx.navigateTo({
+      url: '../question/question?quizid='+e.currentTarget.dataset.quizid,
     })
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.quizid);
+    const that = this;
+    wx.request({
+      url: app.gd.host + "/quiz/list",
+      data: {
+        courseId:options.courseid
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'Token':app.gd.token
+        // 'content-type': 'application/x-www-form-urlencoded'
+      },
+      method:"GET",
+      success(res) {
+        wx.showToast({
+          title: res.data.msg,
+          duration:2000
+        })
+        that.setData({
+          quizList:res.data.data
+        })
+        console.log(res.data.data);
+      }
+    })
   },
 
   /**

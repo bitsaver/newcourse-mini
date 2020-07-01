@@ -1,0 +1,15 @@
+<!--pages/mine/quiz/quiz.wxml-->
+<view>
+<text>试卷列表</text>
+  <scroll-view>
+    <view wx:for="{{quizList}}">
+      <view class="quiz">
+        <view class="quiz_name">{{index}}.{{item.name}}</view>
+        <view class="quiz_brief">开始时间：{{item.startTime}}</view>
+        <view class="quiz_brief">截至时间：{{item.deadline}}</view>
+        <view class="quiz_enroll_btn" bindtap="openQuiz" data-quizid="{{item.id}}">打开试卷</view>
+        <view>---------------------</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

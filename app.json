@@ -5,7 +5,11 @@
     "pages/index/index",
     "pages/massage/massage",
     "pages/mine/mine",
-    "pages/find/find"
+    "pages/find/find",
+    "pages/mycourse/mycourse",
+    "pages/mine/course/course",
+    "pages/mine/quiz/quiz",
+    "pages/mine/question/question"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,10 +22,6 @@
     "selectedColor": "#1296db",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
-    "height": "50px",
-    "fontSize": "10px",
-    "iconWidth": "24px",
-    "spacing": "3px",
     "list": [
       {
         "pagePath": "pages/home/home",
