@@ -1,18 +1,26 @@
 <!--pages/home/home.wxml-->
-<view>
-  <view class="search">
-    <input class="search_input" bindinput="searchInput" placeholder="请输入课程名程..."></input>
-    <button class="search_button" bindtap="searchButton">搜索</button>
-  </view>
-  <scroll-view>
-    <view wx:for="{{courseList}}" wx:key="item.id">
-      <view class="question">
-        <view class="question_name">{{index}}.  {{item.name}}</view>
-        <view class="question_brief">简介：{{item.brief}}</view>
-        <view class="question_state">状态{{item.state}}</view>
-        <view class="question_enroll_btn" bindtap="enrollButton" data-questionid="{{item.id}}">参加课程</view>
-        <view>---------------------</view>
-      </view>
+<view class="container">
+  <view class="search_wrap">
+    <view class="search">
+      <input class="search_input"  style="width:60vw" bindinput="searchInput" placeholder="请输入课程名程..."></input>
+      <button class="search_button" style="width:25vw" bindtap="searchButton">搜索</button>
     </view>
-  </scroll-view>
+  </view>
+  
+  <view class="course_wrap" >
+    <scroll-view class="course_scroll" style="width:96vw" scroll-y="true">
+      <view  class="course" wx:for="{{courseList}}" wx:key="item.id">
+        <view class="course_left" >
+          <image class="course_img" src="../../static/course/course.jpg" ></image>
+        </view>
+
+        <view class="course_right">
+          <view class="course_name">{{index+1}} {{item.name}}</view>
+          <view class="course_brief">简介：{{item.brief}}</view>
+          <view class="course_state">状态：{{item.state}}</view>
+          <view class="course_enroll_btn" bindtap="enrollButton" data-courseid="{{item.id}}">参加</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
 </view>

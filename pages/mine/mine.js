@@ -8,7 +8,6 @@ Page({
    */
   data: {
       hasLogined:false,
-
   },
 
   tocourseButton: function(){
@@ -23,6 +22,12 @@ Page({
     if(app.gd.token==null){
       wx.navigateTo({
         url: '../login/login',
+        events:{
+          isLoginSuccess:function(data){
+            that.hasLogined = data;
+          }
+        }
+
       })
       this.setData({
         hasLogined:true

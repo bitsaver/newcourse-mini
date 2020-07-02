@@ -11,12 +11,12 @@ Page({
   },
 
   enrollButton: function(e){
-    e.currentTarget.dataset.questionid
+    e.currentTarget.dataset.courseid
     const that = this;
     wx.request({
       url: app.gd.host + "/courseUser/enroll",
       data: {
-        courseId: e.currentTarget.dataset.questionid
+        courseId: e.currentTarget.dataset.courseid
       },
       header: {
         'content-type': 'application/json', // 默认值
@@ -31,6 +31,8 @@ Page({
           duration:2000
         })
         console.log(res.data.data);
+        console.log(e.currentTarget.dataset.courseid);
+        
       }
     })
   },

@@ -1,20 +1,71 @@
 /* pages/home/home.wxss */
+.container{
+  display: flex;
+  margin: 0;
+  padding:0;
+  
+}
+
 
 /* 顶部搜索框 */
+.search_wrap{
+  position: flex;
+  overflow: hidden;
+  background-color:rgba(255,255,255,0.9);
+}
 .search{
   display: flex;
+  float: left;
   border: thin solid #269FDE;
-  border-radius: 3vw;
-  margin: 2vw 5vh;
+  border-radius: 50rpx;
+  margin: 20rpx 20rpx;
 }
 
 .search_input{
-  width: 90vw;
-  border-radius: inherit;
-  padding:2vh;
+  padding:25rpx 50rpx;
 }
 
+
 .search_button{
-  width: 10vw;
+  border-bottom-right-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+  padding-left: 50rpx;
   background-color: #269FDE;
+  color: #fff;
+}
+
+
+/* course样式 */
+
+.course{
+  font-size: 14px;
+  display: flex;
+  margin: 10rpx;
+  padding:10rpx;
+  border: thin solid #269FDE;
+  background-color: #D5F1FF;
+  border-radius: 50rpx;
+}
+
+.course_left{
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.course_img{
+  width:200rpx;
+  height:200rpx;
+  border-radius: 30rpx;
+}
+
+.course_right{
+  margin-left: 10rpx;
+}
+
+.course_enroll_btn{
+  width: 175rpx;
+  text-align: center;
+  background-color: #269FDE;
+  color: #fff;
+  border-radius: 50rpx;
 }

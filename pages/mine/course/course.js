@@ -15,6 +15,17 @@ Page({
     })
   },
 
+  logoutButton: function(){
+    getApp().gd.token=null;
+    wx.showToast({
+      title: '退出登录成功！',
+      duration: 3000
+    })
+    wx.switchTab({
+      url: '../../home/home',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -35,6 +46,12 @@ Page({
           title: res.data.msg,
           duration:2000
         })
+        if(res.data.data.length == 0){
+          wx.showToast({
+            title: '您还没有课程！',
+            duration:3000
+          })
+        }
         that.setData({
           courseList:res.data.data
         })

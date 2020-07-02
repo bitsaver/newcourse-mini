@@ -1,6 +1,6 @@
 <!--pages/mine/mine.wxml-->
 <view wx:if="{{hasLogined}}">
   <button bindtap="tocourseButton">我的课程</button>
-  <view>-----------</view>
-  <button bindtap="()=>getApp().gd.token=null">退出登录</button>
+  <view>   </view>
+  <button bindtap="logoutButton">退出登录</button>
 </view>
