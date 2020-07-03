@@ -1,62 +1,73 @@
-// pages/mine/quiz/quiz.js
+//index.js
 const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    quizList:[]
+    name: "",
+    brief:""
   },
 
-
-  openQuiz:function(e){
-    console.log(e.currentTarget.dataset.quizid)
-    wx.navigateTo({
-      url: '../question/question?quizid='+e.currentTarget.dataset.quizid,
+  bindKeyInput(e){
+    this.setData({
+      name: e.detail.value
     })
   },
-  gotoPage:function() {
-    wx.navigateTo({
-      url: '../addQuiz/addQuiz',
-    })
 
+  bindKeyInput2(e){
+    this.setData({
+      brief: e.detail.value
+    })
   },
+
+  submint(){
+    var that = this;		
+    wx.request({
+      method:'post',
+      url: app.gd.host + "/course/add",
+      data:{
+        name:that.data.name,
+        brief:that.data.brief,
+        imgUrl:"../../static/icon/5e45094d08005d4703000170.jpg"
+      },
+      header: {
+        'content-type': 'application/json', // 默认值,
+        'token':app.gd.token
+      },
+      success(res) {
+        wx.showToast({
+          title: '课程添加成功',
+          icon: 'success',
+          duration: 2000//持续的时间
+        })
+        setTimeout(()=>{
+          wx.navigateBack({
+            delta: 1
+          })
+        },2000)
+      }
+    })
+  },
+
+  onTabItemTap: function(){
+    
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.quizid);
-    const that = this;
-    wx.request({
-      url: app.gd.host + "/quiz/list",
-      data: {
-        courseId:options.courseid
-      },
-      header: {
-        'content-type': 'application/json', // 默认值
-        'Token': app.gd.token
-        // 'content-type': 'application/x-www-form-urlencoded'
-      },
-      method:"GET",
-      success(res) {
-        wx.showToast({
-          title: res.data.msg,
-          duration:2000
-        })
-        that.setData({
-          quizList:res.data.data
-        })
-        console.log(res.data.data);
-      }
-    })
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

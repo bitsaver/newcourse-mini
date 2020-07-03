@@ -8,6 +8,7 @@ Page({
    */
   data: {
       hasLogined:false,
+      id: '',
   },
 
   tocourseButton: function(){
@@ -15,7 +16,7 @@ Page({
       url: './course/course',
     })
   },
-
+ 
   onTabItemTap: function(){
     const that = this;
     console.log(app.gd.token)
@@ -59,7 +60,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+   
   },
 
   /**

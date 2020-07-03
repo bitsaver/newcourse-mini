@@ -1,71 +1,48 @@
 /* pages/mine/course/course.wxss */
-.container{
+.list-item{
   display: flex;
-  margin: 0;
-  padding:0;
-  
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  margin-top: 20rpx;
+  border-bottom: 1px solid #ddd;
 }
-
-
-/* 顶部搜索框 */
-.search_wrap{
-  position: flex;
-  overflow: hidden;
-  background-color:rgba(255,255,255,0.9);
-}
-.search{
+.media{
+  flex: 3;
+  box-sizing: border-box;
   display: flex;
-  float: left;
-  border: thin solid #269FDE;
-  border-radius: 50rpx;
-  margin: 20rpx 20rpx;
+  flex-direction: column;
+  justify-content: space-between;
+  padding:  15rpx 0;
 }
-
-.search_input{
-  padding:25rpx 50rpx;
+.dec{
+  font-size: 12px;
+  color: #999;
 }
-
-
-.search_button{
-  border-bottom-right-radius: 50rpx;
-  border-top-right-radius: 50rpx;
-  padding-left: 50rpx;
-  background-color: #269FDE;
+.cover{
+  flex: 1;
+  height: 70px;
+}
+.btn{
+  width: 100%;
+}
+.list-wrapper{
+  margin-bottom: 120rpx;
+}
+.footer-btn{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex: 1;
+}
+.footer-btn .addbtn{
+width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
   color: #fff;
-}
-
-
-/* course样式 */
-
-.course{
-  font-size: 14px;
-  display: flex;
-  margin: 10rpx;
-  padding:10rpx;
-  border: thin solid #269FDE;
-  background-color: #D5F1FF;
-  border-radius: 50rpx;
-}
-
-.course_left{
-  width: 200rpx;
-  height: 200rpx;
-}
-
-.course_img{
-  width:200rpx;
-  height:200rpx;
-  border-radius: 30rpx;
-}
-
-.course_right{
-  margin-left: 10rpx;
-}
-
-.course_enroll_btn{
-  width: 175rpx;
-  text-align: center;
-  background-color: #269FDE;
-  color: #fff;
-  border-radius: 50rpx;
+  background-color:#7e8ef0;
+    padding:0px !important;
+  margin: 0px auto !important;
+    flex: 1;
 }

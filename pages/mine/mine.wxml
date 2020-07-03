@@ -1,6 +1,46 @@
 <!--pages/mine/mine.wxml-->
-<view wx:if="{{hasLogined}}">
-  <button bindtap="tocourseButton">我的课程</button>
-  <view>   </view>
-  <button bindtap="logoutButton">退出登录</button>
-</view>
+
+<view class="container">
+
+  <view class="userinfo">
+    <image class="account-bg" src="../../static/icon/mine.png" background-size="cover"></image>
+    <text class="userinfo-nickname"></text>
+  </view>
+
+  </view>
+
+
+
+<view class="page">
+
+
+  <view wx:if="{{hasLogined}}" class="page__bd">
+
+    <!-- <view class="weui-cells__title"></view> -->
+
+    <view class="weui-cells weui-cells_after-title">
+
+      <navigator   bindtap="tocourseButton" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+
+        <view class="weui-cell__bd">我的课程</view>
+
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+
+      </navigator>
+
+
+      <navigator bindtap="logoutButton" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+
+        <view class="weui-cell__bd">退出登录</view>
+
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+
+      </navigator>
+
+    </view>
+
+  </view>  </view>
+
+
+
+

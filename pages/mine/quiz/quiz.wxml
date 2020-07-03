@@ -1,15 +1,63 @@
 <!--pages/mine/quiz/quiz.wxml-->
-<view>
-<text>试卷列表</text>
-  <scroll-view>
-    <view wx:for="{{quizList}}">
-      <view class="quiz">
-        <view class="quiz_name">{{index}}.{{item.name}}</view>
-        <view class="quiz_brief">开始时间：{{item.startTime}}</view>
-        <view class="quiz_brief">截至时间：{{item.deadline}}</view>
-        <view class="quiz_enroll_btn" bindtap="openQuiz" data-quizid="{{item.id}}">打开试卷</view>
-        <view>---------------------</view>
+<view class="page">
+
+ <image class="cover" src="../../../static/course/course.jpg"></image>
+  <view class="content">
+    <view class="title">{{details.name}}</view>
+    <view class="dec">{{details.brief}}</view>
+  </view>
+
+     <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">课程测试</view>
+        </view>
       </view>
+
+  <view class="page__bd" wx:for="{{quizList}}">
+
+    <view class="weui-form-preview">
+
+      <view class="weui-form-preview__bd">
+
+        <view class="weui-form-preview__item">
+
+          <view class="weui-form-preview__label">试卷名称</view>
+
+          <view class="weui-form-preview__value">{{index}}.{{item.name}}</view>
+
+        </view>
+
+        <view class="weui-form-preview__item">
+
+          <view class="weui-form-preview__label">开始时间</view>
+
+          <view class="weui-form-preview__value">{{item.startTime}}</view>
+
+        </view>
+         <view class="weui-form-preview__item">
+
+          <view class="weui-form-preview__label">截止时间</view>
+
+          <view class="weui-form-preview__value">{{item.deadline}}</view>
+
+        </view>
+
+
+      </view>
+
+      <view class="weui-form-preview__ft">
+
+        <navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="openQuiz" data-quizid="{{item.id}}">打开试卷</navigator>
+
+      </view>
+
     </view>
-  </scroll-view>
+
+  </view>
+  <view class="list-wrapper"></view> 
+    <view class="footer-btn">
+   <button class="addbtn" bindtap="gotoPage">添加试卷</button>
+   </view>
+
+
 </view>

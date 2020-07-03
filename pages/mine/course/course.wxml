@@ -1,22 +1,17 @@
 <!--pages/mine/course/course.wxml-->
-<view>
-<text>我的课程</text>
 
-  <view class="course_wrap" >
-    <scroll-view class="course_scroll" style="width:96vw" scroll-y="true">
-      <view  class="course" wx:for="{{courseList}}" wx:key="item.id">
-        <view class="course_left" >
-          <image class="course_img" src="../../../static/course/course.jpg" ></image>
-        </view>
-
-        <view class="course_right">
-          <view class="course_name">{{index+1}} {{item.name}}</view>
-          <view class="course_brief">简介：{{item.brief}}</view>
-          <view class="course_state">状态：{{item.state}}</view>
-          <view class="course_enroll_btn" bindtap="entercourseButton" data-courseid="{{item.id}}">进入</view>
-        </view>
+<view class="container">
+  <view class="list-wrapper">
+    <view class="list-item" wx:for="{{courseList}}" bindtap="entercourseButton" data-courseid="{{item.id}}" wx:key="item.id">
+      <view class="media">
+        <view class="title">{{item.name}}</view>
+        <view class="dec">{{item.brief}}</view>
       </view>
-    </scroll-view>
+      <image class="cover" mode="aspectFit" src="../../../static/course/course.jpg"></image>
+    </view>
   </view>
+  <view class="footer-btn">
+   <button class="addbtn" bindtap="gotoPage2">添加课程</button>
+   </view>
 </view>
 

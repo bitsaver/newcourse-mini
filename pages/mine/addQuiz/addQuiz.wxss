@@ -1,0 +1,43 @@
+
+.page-section{
+  margin-bottom: 20rpx;
+}
+button{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.button-sp-area{
+  margin: 0 auto;
+  width: 60%;
+}
+.mini-btn{
+  margin-right: 10rpx;
+}
+/*按钮*/
+.addBtnView {
+  margin-top: 35px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+
+}
+ 
+.addBtnView .addBtn {
+  width: 90%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fff;
+  background-color:#7e8ef0;
+  border: 0.1rpx solid #ccc;
+  border-radius: 40rpx;
+  padding:0px !important;
+  margin: 0px auto !important;
+}
+.picker{
+ margin: 20px;
+}
+
+
+
+
+ 
+ 

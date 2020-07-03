@@ -1,1 +1,25 @@
 /* pages/mine/quiz/quiz.wxss */
+.cover{
+  width: 100%;
+}
+.list-wrapper{
+  width: 100%;
+  height: 120rpx;
+}
+.footer-btn{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex: 1;
+}
+.footer-btn .addbtn{
+width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fff;
+  background-color:#7e8ef0;
+    padding:0px !important;
+  margin: 0px auto !important;
+    flex: 1;
+}

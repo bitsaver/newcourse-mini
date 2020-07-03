@@ -8,7 +8,9 @@
     "pages/find/find",
     "pages/mine/course/course",
     "pages/mine/quiz/quiz",
-    "pages/mine/question/question"
+    "pages/mine/question/question",
+    "pages/mine/add/add",
+    "pages/mine/addQuiz/addQuiz"
   ],
   "window": {
     "backgroundTextStyle": "light",
