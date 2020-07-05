@@ -6,6 +6,8 @@
     <image class="login-img" src="../../static/images/logo.jpg"></image>  
   </view>  
   <view class="login-from">  
+
+  
   <form bindsubmit="formSubmit" class='form'>
     <view class="myno">
     <!-- 学号 -->

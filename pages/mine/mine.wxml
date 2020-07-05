@@ -15,31 +15,34 @@
 
 
   <view wx:if="{{hasLogined}}" class="page__bd">
-
     <!-- <view class="weui-cells__title"></view> -->
-
     <view class="weui-cells weui-cells_after-title">
 
-      <navigator   bindtap="tocourseButton" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <navigator   bindtap="toMyInfo" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
 
-        <view class="weui-cell__bd">我的课程</view>
+        <view class="weui-cell__bd">个人信息</view>
 
         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
 
       </navigator>
 
 
-      <navigator bindtap="logoutButton" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-
+      <navigator bindtap="logout" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
         <view class="weui-cell__bd">退出登录</view>
-
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-
       </navigator>
 
     </view>
+  </view>
 
-  </view>  </view>
+  <view wx:if="{{!hasLogined}}" class="page__bd">
+    <navigator   bindtap="toLogin" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">登录</view>
+
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+  </view>
+  
+</view>
 
 
 

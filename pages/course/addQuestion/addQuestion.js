@@ -1,4 +1,4 @@
-// pages/mine/mine.js
+// pages/mine/addQuestion/addQuestion.js
 const app = getApp();
 
 Page({
@@ -23,25 +23,6 @@ Page({
     })
   },
 
-  getList(){
-    var that = this;		
-    wx.request({
-      method:'get',
-      url: app.gd.host + "/question/integrity",
-      data:{
-        quizId:that.data.checkPaper.id
-      },
-      header: {
-        'content-type': 'application/json', // 默认值,
-        'token':app.gd.token
-      },
-      success(res) {
-        that.setData({
-          list:res.data.data
-        })
-      }
-    })
-  },
 
   submint(){
     var that = this;		
@@ -49,21 +30,35 @@ Page({
       wx.request({
         method:'put',
         url: app.gd.host + "/quiz/edit",
-        data:{
-          id:that.data.id,
-          name:that.data.name,
-          courseId:that.data.courseId,
-          startTime:that.data.startDate.length > 10 ? that.data.startDate : that.data.startDate + ' 00:00:00',
-          deadline:that.data.endDate.length > 10 ? that.data.endDate : that.data.endDate + ' 23:59:59'
-        },
+        data:[
+            {
+                "quizId":27,
+                "question": {
+                    "content": "1+1=",
+                    "score": 1,
+                    "type": 1
+                },
+                "answerList": [
+                    {
+                        "answer":"第一空答案"
+                    }
+                ],
+                "choiceList": [
+                    {
+                        "content": "1"
+                    }
+                ],
+                "imgList": []
+            }
+        ],
         header: {
           'content-type': 'application/json', // 默认值,
           'token':app.gd.token
         },
         success(res) {
           wx.showToast({
-            title: '试卷编辑成功',
-            icon: 'success',
+            title: 'res.data.msg',
+            icon: 'none',
             duration: 2000//持续的时间
           })
           setTimeout(()=>{
@@ -89,8 +84,8 @@ Page({
         },
         success(res) {
           wx.showToast({
-            title: '试卷添加成功',
-            icon: 'success',
+            title: res.data.msg,
+            icon: 'none',
             duration: 2000//持续的时间
           })
           setTimeout(()=>{
@@ -101,7 +96,6 @@ Page({
         }
       })
     }
-    
   },
 
   bindDateChange(e){

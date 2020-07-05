@@ -1,0 +1,27 @@
+<!--pages/mine/question/question.wxml-->
+
+<view class="page">
+
+  <view class="page__hd">
+    <view class="page__title">添加问题</view>
+  </view>
+
+  <view class="page__bd">
+
+  <view class="card"wx:for="{{questionList}}">
+  
+    <view class="card-header">{{index+1}}.  {{item.question.content}}</view>
+    <view class="card-content" wx:for="{{item.choiceList}}">
+      <view class="card-content-inner">{{item.content}}</view>
+    </view>
+
+    <view class="card-header" >正确答案：</view>
+
+    <view class="card-content" wx:for="{{item.answerList}}">
+      <view class="card-content-inner">{{item.content}}</view>
+    </view>
+
+    <view class="card-footer" >我的答案：</view>
+    </view>
+  </view>
+</view>

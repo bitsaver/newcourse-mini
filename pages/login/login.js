@@ -36,15 +36,21 @@ Page({
       },
       method:"POST",
       success(res) {
-        app.gd.token = res.data.data;
         wx.showToast({
           title: res.data.msg,
+          icon:'none',
           duration:2000
         })
+        setTimeout(()=>{
+          if(res.data.code==200){
+            app.gd.token = res.data.data;
+            wx.switchTab({
+              url: '../home/home',
+            })
+          }
+        },1000);
+
         console.log(res.data);
-        wx.switchTab({
-          url: '../home/home',
-        })
       }
     })
   },

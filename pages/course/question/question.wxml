@@ -14,8 +14,15 @@
     <view class="card-content" wx:for="{{item.choiceList}}">
       <view class="card-content-inner">{{item.content}}</view>
     </view>
-    <view class="card-footer" >正确答案：</view>
-     <view class="card-footer" >我的答案：</view>
-  </view>
+    <view class="card-header" >正确答案：</view>
+    <view class="card-content" wx:for="{{item.answerList}}">
+      <view class="card-content-inner">{{item.content}}</view>
     </view>
-     </view>
+
+    <view class="card-footer" >我的答案：</view>
+     <view class="card-content" wx:for="{{item.answerList}}">
+      <view class="card-content-inner">{{item.content}}</view>
+    </view>
+  </view>
+  </view>
+  </view>

@@ -1,17 +1,20 @@
 <!--pages/mine/course/course.wxml-->
 
 <view class="container">
-  <view class="list-wrapper">
+  <view class="list-wrapper" >
     <view class="list-item" wx:for="{{courseList}}" bindtap="entercourseButton" data-courseid="{{item.id}}" wx:key="item.id">
       <view class="media">
         <view class="title">{{item.name}}</view>
         <view class="dec">{{item.brief}}</view>
       </view>
-      <image class="cover" mode="aspectFit" src="../../../static/course/course.jpg"></image>
+      <image class="cover" mode="aspectFit" src="../../static/course/course.jpg"></image>
     </view>
   </view>
-  <view class="footer-btn">
-   <button class="addbtn" bindtap="gotoPage2">添加课程</button>
-   </view>
-</view>
 
+  <view wx:if="{{isShowed}}">
+    <view class="footer-btn">
+    <button class="addbtn" bindtap="gotoPage2">添加课程</button>
+    </view>
+  </view>
+ 
+</view>

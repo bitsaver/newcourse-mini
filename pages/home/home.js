@@ -27,59 +27,77 @@ Page({
       'img_path': '../../static/images/swiper1.jpg'
     },
     ],
+    courseName:"",
+    courseList:[]
+  },
+
+  enrollButton: function(e){
+    e.currentTarget.dataset.courseid
+    const that = this;
+    wx.request({
+      url: app.gd.host + "/courseUser/enroll",
+      data: {
+        courseId: e.currentTarget.dataset.courseid
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'Token':app.gd.token
+        // 'content-type': 'application/x-www-form-urlencoded'
+      },
+      method:"POST",
+      success(res) {
+        wx.showToast({
+          title: res.data.msg,
+          icon:'none',
+          duration:2000
+        })
+        console.log(res.data.data);
+        console.log(e.currentTarget.dataset.courseid);
+        
+      }
+    })
+  },
+
+  searchInput: function(e){
+    this.data.courseName=e.detail.value;
+  },
+
+  searchButton: function(){
+    const that = this;
+    wx.request({
+      url: app.gd.host + "/course/search",
+      data: {
+        name: that.data.courseName,
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+        // 'content-type': 'application/x-www-form-urlencoded'
+      },
+      method:"GET",
+      success(res) {
+        console.log(res.data);
+        wx.showToast({
+          title: res.data.msg,
+          duration:2000
+        });
+        if(res.data.data.length==0){  
+          wx.showToast({
+            title: "没有找到课程！",
+            duration:2000
+          });
+        }
+        that.setData({
+          courseList:res.data.data
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getStorage({
-      key: 'token',
-      success(res) {
-        app.gd.token = res.data
-        if (app.gd.token == null) {
-          wx.navigateTo({
-            url: '../login/login',
-          })
-        } else {
-          console.log(11)
-          that.getList()
-        }
-      }
-    })
+
   },
-
-  getList() {
-    var that = this;
-    wx.request({
-      method: 'get',
-      url: app.gd.host + "/course/getEnrolled",
-      header: {
-        'content-type': 'application/json', // 默认值,
-        'token': app.gd.token
-      },
-      success(res) {
-        if (res.data.code == 601) {
-          wx.navigateTo({
-            url: '../login/login',
-          })
-        } else if (res.data.code == 200) {
-          that.setData({
-            list: res.data.data
-          })
-        }
-      }
-    })
-  },
-
-
-
-  gotoPage1(event) {
-    var data = JSON.stringify(event.currentTarget.dataset.item)
-    wx.navigateTo({
-      url: '../mine/course/course?data=' + data,
-    })
-  },
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -92,22 +110,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this
-    wx.getStorage({
-      key: 'identity',
-      success(res) {
-        that.setData({
-          id: res.data
-        })
-      }
-    })
-    if (app.gd.token == null) {
-      wx.navigateTo({
-        url: '../login/login',
-      })
-    } else {
-      that.getList()
-    }
 
   },
 

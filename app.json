@@ -5,12 +5,12 @@
     "pages/index/index",
     "pages/massage/massage",
     "pages/mine/mine",
-    "pages/find/find",
-    "pages/mine/course/course",
-    "pages/mine/quiz/quiz",
-    "pages/mine/question/question",
-    "pages/mine/add/add",
-    "pages/mine/addQuiz/addQuiz"
+    "pages/course/course",
+    "pages/course/quiz/quiz",
+    "pages/course/question/question",
+    "pages/course/add/add",
+    "pages/course/addQuiz/addQuiz",
+    "pages/course/addQuestion/addQuestion"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,10 +31,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/find/find",
+        "pagePath": "pages/course/course",
         "iconPath": "./static/icon/find.png",
         "selectedIconPath": "./static/icon/s_find.png",
-        "text": "发现"
+        "text": "课程"
       },
       {
         "pagePath": "pages/massage/massage",

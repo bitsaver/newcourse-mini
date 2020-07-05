@@ -11,25 +11,30 @@ Page({
       id: '',
   },
 
-  tocourseButton: function(){
+  toMyInfo: function(){
+    wx.showToast({
+      title: '玩儿命开发中...',
+      icon:'none'
+    })
+  },
+
+  toLogin:function(){
     wx.navigateTo({
-      url: './course/course',
+      url: '../login/login',
+      events:{
+        isLoginSuccess:function(data){
+          that.setData({
+            hasLogined:data
+          });
+        }
+      }
     })
   },
  
   onTabItemTap: function(){
     const that = this;
-    console.log(app.gd.token)
     if(app.gd.token==null){
-      wx.navigateTo({
-        url: '../login/login',
-        events:{
-          isLoginSuccess:function(data){
-            that.hasLogined = data;
-          }
-        }
-
-      })
+      this.toLogin();
       this.setData({
         hasLogined:true
       })
@@ -37,11 +42,16 @@ Page({
       this.setData({
         hasLogined:true
       })
-      
     }
   },
-  
 
+  logout:function(){
+    app.gd.token=null;
+    this.setData({
+      hasLogined:false
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */

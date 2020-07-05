@@ -39,9 +39,9 @@ Page({
       },
       success(res) {
         wx.showToast({
-          title: '课程添加成功',
-          icon: 'success',
-          duration: 2000//持续的时间
+          title: res.data.msg,
+          icon: 'none',
+          duration:3000
         })
         setTimeout(()=>{
           wx.navigateBack({
